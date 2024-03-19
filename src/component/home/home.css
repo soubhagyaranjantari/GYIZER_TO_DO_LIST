@@ -1,0 +1,157 @@
+.inputBoxContainer {
+    display: flex;
+    flex-direction: row;
+    /* width: 466px/; */
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.inputBoxContainerInner {
+    width: 34%;
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    /* height: 15%; */
+    height: 32px;
+    margin-top: 1%;
+    padding-left: 3%;
+    border: 2px solid #A35709;
+    background: rgba(36, 35, 32, 1);
+    border-radius: 4px;
+}
+
+input::placeholder {
+    color: rgba(240, 227, 202, 0.64);
+
+}
+
+.plusBtnContainer {
+    border: 2px solid rgba(255, 131, 3, 1);
+    
+    border-radius: 8px;
+    padding: 0.8% 1%;
+    margin-left: 1%;
+    color: rgba(255, 131, 3, 1);
+    font-size: 50px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    cursor: pointer;
+}
+
+.dataContainer {
+    border: 2px solid #A35709;
+    background: rgba(36, 35, 32, 1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* width: 335px; */
+    padding: 4% 4%;
+
+    /* gap: 16px; */
+    border-radius: 8px;
+
+}
+
+.mainContainer {
+    border: 2px solid #A35709;
+    background: rgba(36, 35, 32, 1);
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-evenly; */
+    margin: 3%;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 40px;
+    /* justify-content: center; */
+    padding: 5% 6%;
+}
+
+.textStyle {
+    font-family: Roboto;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 25.78px;
+    text-align: left;
+    color: white;
+}
+
+.textStyleSmall {
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.41px;
+    text-align: left;
+    color: white;
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    background: rgba(36, 35, 32, 1);
+    /* width: 55%; */
+}
+
+.iconContainer {
+    /* color: white;
+    border: 2px solid #A35709;
+    background: rgba(36, 35, 32, 1);
+    padding: 3% 5%;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 50px; */
+    border-radius: 8px;
+    padding: 0.8% 1%;
+    margin-left: 1%;
+    color: white;
+    font-size: 30px;
+    border: 2px solid #A35709;
+    background: rgba(36, 35, 32, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    cursor: pointer;
+}
+
+.iconContainerdobble {
+    color: white;
+    border: 2px solid rgba(255, 131, 3, 1);
+    background: rgba(36, 35, 32, 1);
+    padding: 12% 12%;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    cursor: pointer;
+}
+.iconContainerdobblecross {
+    color: rgba(255, 131, 3, 1);
+    border: 2px solid rgba(255, 131, 3, 1);
+    background: rgba(36, 35, 32, 1);
+    padding: 12% 12%;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.iconSubContainer {
+    width: 27%;
+    height: 90%;
+    display: flex;
+    justify-content: space-between;
+}
