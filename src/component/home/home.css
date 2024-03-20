@@ -3,7 +3,7 @@
     flex-direction: row;
     /* width: 466px/; */
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     /* border: 2px solid red; */
     padding-top: 2%;
     padding-bottom: 2%;
@@ -13,16 +13,31 @@
     width: 34%;
     display: flex;
     flex-direction: column;
+    /* justify-content: space-between; */
 }
 
 input {
-    /* height: 15%; */
-    height: 32px;
+    height: 35px;
+    margin-top: 1%;
+    margin-bottom: .5%;
+    padding-left: 3%;
+    border: 2px solid #A35709;
+    background: rgba(36, 35, 32, 1);
+    border-radius: 4px;
+    color: rgba(240, 227, 202, 0.64);
+
+}
+
+#Input {
+    height: 35px;
     margin-top: 1%;
     padding-left: 3%;
     border: 2px solid #A35709;
     background: rgba(36, 35, 32, 1);
     border-radius: 4px;
+    color: rgba(240, 227, 202, 0.64);
+    resize: none;
+
 }
 
 input::placeholder {
@@ -30,20 +45,51 @@ input::placeholder {
 
 }
 
+#show {
+    height: 35px;
+    margin-top: 1%;
+    padding-left: 3%;
+    padding-top: 3%;
+    border: 2px solid #A35709;
+    background: rgba(36, 35, 32, 1);
+    border-radius: 4px;
+    color: rgba(240, 227, 202, 0.64);
+    resize: none;
+    /* overflow: scroll; */
+}
+
+textarea::placeholder {
+    color: rgba(240, 227, 202, 0.64);
+
+}
+
 .plusBtnContainer {
     border: 2px solid rgba(255, 131, 3, 1);
-    
     border-radius: 8px;
-    padding: 0.8% 1%;
+    padding: 0.1% 1%;
     margin-left: 1%;
     color: rgba(255, 131, 3, 1);
     font-size: 50px;
-    
     display: flex;
     justify-content: center;
     align-items: center;
     align-content: center;
     cursor: pointer;
+}
+
+.plusBtnContainerupdate {
+    border: 2px solid rgba(255, 131, 3, 1);
+    border-radius: 8px;
+    padding: 0 1%;
+    margin-left: 1%;
+    color: rgba(255, 131, 3, 1);
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    cursor: pointer;
+    height: 80px;
 }
 
 .dataContainer {
@@ -61,6 +107,17 @@ input::placeholder {
 
 }
 
+.mainContainer-no-task {
+
+    border: 2px solid #A35709;
+    background: rgba(36, 35, 32, 1);
+    margin: 3%;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    padding: 5% 6%;
+}
+
 .mainContainer {
     border: 2px solid #A35709;
     background: rgba(36, 35, 32, 1);
@@ -72,7 +129,8 @@ input::placeholder {
     display: grid;
     grid-template-columns: auto auto auto;
     grid-gap: 40px;
-    /* justify-content: center; */
+    /* place-items: center; */
+    align-content: center;
     padding: 5% 6%;
 }
 
@@ -135,6 +193,7 @@ input::placeholder {
     align-content: center;
     cursor: pointer;
 }
+
 .iconContainerdobblecross {
     color: rgba(255, 131, 3, 1);
     border: 2px solid rgba(255, 131, 3, 1);
@@ -154,4 +213,109 @@ input::placeholder {
     height: 90%;
     display: flex;
     justify-content: space-between;
+}
+
+.centerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #1B1A17;
+    color: white;
+    border-top: 4.47px solid #A35709;
+    border-radius: 5px;
+    /* padding: 20px; */
+    padding-top: 10px;
+    width: 281px;
+    height: 143px;
+    text-align: center;
+}
+
+.modal-content p {
+    margin-bottom: 5%;
+    padding-top: 12%;
+}
+
+.modal-content button.yes-btn {
+    background-color: #1B1A17;
+    color: white;
+    border: 1px solid #A35709;
+    /* Set border */
+    padding: 8px 16px;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5%;
+}
+
+.modal-content button.no-btn {
+    background-color: #1B1A17;
+    color: white;
+    border: 2px solid #A35709;
+    /* Set border */
+    padding: 8px 16px;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5%;
+}
+
+
+
+.modal-content button:last-child {
+    margin-right: 0;
+}
+
+.delete-task-model {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 18PX;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .inputBoxContainer {
+        margin-top: 2%; 
+    }
+    .mainContainer-no-task {
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        border: none;
+        padding-top: 10%;
+    }
+    .mainContainer {
+        background-color: transparent;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dataContainer {
+        width: 345px;
+        height: 72px;
+        border: 2px solid #A35709;
+        border-radius: 8px;
+        padding: 16px;
+    }
 }

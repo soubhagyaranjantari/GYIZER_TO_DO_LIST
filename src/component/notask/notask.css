@@ -1,0 +1,23 @@
+.task-empty-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100px;
+    height: 49px;
+}
+
+.top-empty {
+    width: 64px;
+    border: 2px solid rgba(255, 131, 3, 1);
+}
+
+.middle-content {
+    color: #fff;
+    font-style: Inter;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29.05px;
+    padding-top: 4%;
+    padding-bottom: 9%;
+}
