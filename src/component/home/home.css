@@ -127,7 +127,7 @@ textarea::placeholder {
     margin: 3%;
     border-radius: 8px;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 31%  31%  31%;
     grid-gap: 40px;
     /* place-items: center; */
     align-content: center;
@@ -294,8 +294,11 @@ textarea::placeholder {
 
 @media only screen and (max-width: 600px) {
     .inputBoxContainer {
-        margin-top: 2%; 
+        margin-top: 2%;
     }
+   
+    
+
     .mainContainer-no-task {
         background-color: transparent;
         display: flex;
@@ -303,6 +306,7 @@ textarea::placeholder {
         border: none;
         padding-top: 10%;
     }
+
     .mainContainer {
         background-color: transparent;
         border: none;
@@ -318,4 +322,40 @@ textarea::placeholder {
         border-radius: 8px;
         padding: 16px;
     }
+
+    .dataContainer {
+        position: relative;
+        width: 100%;
+        border: 2px solid #A35709;
+        background: rgba(36, 35, 32, 1);
+        border-radius: 8px;
+        padding: 4% 4%;
+        margin-bottom: 20px;
+    }
+
+    .iconContainerdobblecross {
+        font-size: 14px;
+        padding: 5% 4%;
+
+    }
+
+}
+
+.mobile-icon-container{
+    display: flex;
+    position: absolute;
+    right: 7%;
+    bottom: -45%;
+}
+.edit-icon{
+    font-size: 20px;
+    height: 20px;
+    margin-left: 18%;
+    width: 20px;
+  
+}
+.info-icon{
+    height: 35px;
+    font-size: 45px;
+    width: 38px;
 }

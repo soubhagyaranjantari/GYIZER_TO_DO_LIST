@@ -14,10 +14,24 @@ const Home = () => {
     const [selectedTask, setSelectedTask] = useState(null);
     const [isEditing, setIsEditing] = useState(false);
     const [clickedTaskId, setClickedTaskId] = useState(null);
+    const [clickedTaskIdMobile, setClickedTaskIdMobile] = useState(null);
     const [twoIconClicked, setTwoIconClicked] = useState(null);
     const [idCount, setidCount] = useState(1);
     const [deleteModalVisible, setDeleteModalVisible] = useState(false);
     const [taskToDelete, setTaskToDelete] = useState(null);
+    const [mobileShow, setMobileShow] = useState(false);
+
+    const [showModal, setShowModal] = useState(false);
+    const [data, setData] = useState(null)
+
+    const handleOpenModal = (task) => {
+        setShowModal(true);
+        setData(task)
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false);
+    };
 
     const handleTwoIconClick = (taskId) => {
         setClickedTaskId(taskId);
@@ -53,6 +67,17 @@ const Home = () => {
         }
     }
 
+    const handleSaveData = (taskId, newData) => {
+        console.log(taskId, "newData");
+        console.log("taskId", newData);
+        const updatedTasks = tasks.map(task => {
+            if (task.id === taskId) {
+                return { ...task, ...newData };
+            }
+            return task;
+        });
+        setTasks(updatedTasks);
+    };
     const handleInputChange = (e, field) => {
         const value = e.target.value;
         if (field === 'title') {
@@ -90,6 +115,12 @@ const Home = () => {
         setDeleteModalVisible(false);
     }
 
+    const handleShowInfoEditBtn = (taskId) => {
+        setMobileShow(!mobileShow);
+        setClickedTaskIdMobile(taskId);
+    }
+
+
     return (
         <>
             <div className='inputBoxContainer'>
@@ -124,25 +155,76 @@ const Home = () => {
                     <TaskEmptyState />
                 </div>
             ) : (
-                <div className='mainContainer'>
+                <div className='mainContainer' >
                     {tasks.map((task, index) => (
-                        <div className='dataContainer' key={index}>
+                        <div className='dataContainer' key={index} onClick={window.innerWidth <= 600 ? () => handleShowInfoEditBtn(task.id) : null}>
                             <div className='textContainer'>
                                 <span className='textStyle'>{task.title}</span>
-                                <span className='textStyleSmall'>{task.content}</span>
+                                <span className='textStyleSmall'>{task.content.slice(0, 20) + "..."}</span>
                             </div>
-                            {clickedTaskId === task.id ?
-                                <div className='iconSubContainer'>
-                                    <span className='iconContainerdobble' title="Edit" onClick={() => handleEditContent(task)}><MdEdit /></span>
+                            {window.innerWidth <= 700 ?
+                                <>
                                     <span className='iconContainerdobblecross' title="Delete" onClick={() => handleDeleteTask(task.id)}><IoMdClose /></span>
-                                </div>
+                                    {clickedTaskIdMobile === task.id && mobileShow && window.innerWidth <= 600 ?
+                                        <div className='mobile-icon-container'>
+                                            {
+                                                mobileShow ? <>
+                                                    <span className='iconContainer info-icon' title="Info" onClick={() => handleTwoIconClick(task.id)}><IoIosInformation /></span>
+                                                    <span className='iconContainerdobble edit-icon' title="Edit" onClick={() =>{ handleOpenModal(task)
+                                                    handleEditContent(task)}}><MdEdit /></span>
+
+                                                </> : null
+                                            }
+                                        </div> : null
+                                    }
+                                </>
+
                                 :
-                                <span className='iconContainer' title="Info" onClick={() => handleTwoIconClick(task.id)}><IoIosInformation /></span>
+                                <>
+                                    {clickedTaskId === task.id ?
+                                        <div className='iconSubContainer'>
+                                            <span className='iconContainerdobble' title="Edit" onClick={() => handleEditContent(task)}><MdEdit /></span>
+                                            <span className='iconContainerdobblecross' title="Delete" onClick={() => handleDeleteTask(task.id)}><IoMdClose /></span>
+                                        </div>
+                                        :
+                                        <span className='iconContainer' title="Info" onClick={() => handleTwoIconClick(task.id)}><IoIosInformation /></span>
+                                    }
+                                </>
                             }
                         </div>
                     ))}
                 </div>
+
             )}
+            {showModal ?
+                <>
+                    <div className={'modal' ? 'mobile-edit' : ''}>
+                        <input
+                         id='mobile-edit-input'
+                            type="text"
+                            placeholder='Title...'
+                            value={inputTitle}
+                            onChange={(e) => handleInputChange(e, 'title')}
+                        />
+
+                        <textarea
+                            id='mobile-edit-textaera'
+                            placeholder='Input...'
+                            value={inputContent}
+                            onChange={(e) => handleInputChange(e, 'content')}
+                            style={{ height: "300px" }}
+                        />
+                        <div className="edit-btn">
+                            <button className='mobile-edit-btn' onClick={handleCloseModal}>cancel</button>
+                            <button className='mobile-edit-btn' onClick={()=>{
+                                handleAddOrUpdateTask()
+                                setShowModal(false)
+                            }}>save</button>
+                        </div>
+                    </div>
+                </>
+                : null
+            }
             {deleteModalVisible && (
                 <div className="modal">
                     <div className="modal-content">
